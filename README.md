@@ -34,15 +34,34 @@ side worktree 分支 ──(并行开发)──┐
 - 功能开发在 `graphics-side-<n>` work tree 中进行（分支名与目录同名），完成后合并回 `develop`
 - 版本发布时 `product` 打 tag（如 `v1.0.0`）
 
-## 开发流程（Ticket 管理）
+## 开发流程
 
-单人 Jira 式管理：任务与进度在 GitHub Issues，知识沉淀在本地（详见 `../personal/README.md` 的「Ticket 管理」章节）。
+### Ticket 管理（单人 Jira 式）
+
+任务与进度用 GitHub Issues 管理，知识沉淀在本地 `../personal/tickets/`（repo 之外）。
+
+**Issue 规则**
 
 - 每个开发功能/实验 = 一个 Issue（ticket），粒度：可独立完成、可验证
-- Labels 主题分类：`interaction` / `shader-vfx` / `model-animation` / `performance` / `infra` / `docs`
-- Milestone 按月（`2024-08`、`2024-09` …），看板列：Todo → In Progress → Done
-- 在 `graphics-side-<n>` work tree 分支开发，提交写 `fixes #<编号>` 自动关联，完成后合并回 `develop`
-- 本地知识文档目录 `tickets/<issue编号>-<slug>/`（模板：`personal/tickets/_template/`）
+- **Labels** 主题分类：
+
+| Label | 主题 |
+| --- | --- |
+| `interaction` | 交互操作 |
+| `shader-vfx` | 着色器与视觉效果 |
+| `model-animation` | 模型加载与动画 |
+| `performance` | 性能优化 |
+| `infra` | 脚手架/工程配置 |
+| `docs` | 文档 |
+
+- **Milestone** 按月：`2024-08`、`2024-09` …
+- **看板**（GitHub Projects）：Todo → In Progress → Done
+
+**开发与关联**
+
+- 在 `graphics-side-<n>` work tree 分支开发，完成后合并回 `develop`
+- 提交信息写 `fixes #<编号>` 自动关联并关闭 ticket
+- 每个 ticket 在本地 `tickets/<issue编号>-<slug>/` 记录知识沉淀（模板：`../personal/tickets/_template/`）
 
 ## 开发
 
