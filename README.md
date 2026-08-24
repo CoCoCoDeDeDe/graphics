@@ -30,8 +30,14 @@ side worktree 分支 ──(并行开发)──┐
 | `staging` | 预发布/验收 | develop |
 | `product` | 生产发布 | staging |
 
+### 分支命名规范
+
+- **分支名 = ticket 名**：分支名与 Issue 标题（英文 slug）相同，例如 ticket `orbit-camera-interaction` → 分支 `orbit-camera-interaction`
+- **多分支后缀**：一个 ticket 需要多个分支时，从第二个起加 `-[number]`：`orbit-camera-interaction-2`、`orbit-camera-interaction-3`
+- **分支 ↔ PR 一对一**：每个分支对应一个 PR，PR 合并回 `develop` 后删除该分支
+- work tree 目录名 = 分支名（`git worktree add ../<分支名> -b <分支名>`）
+
 约定：
-- 功能开发在 `graphics-side-<n>` work tree 中进行（分支名与目录同名），完成后合并回 `develop`
 - 版本发布时 `product` 打 tag（如 `v1.0.0`）
 
 ## 开发流程
@@ -59,9 +65,10 @@ side worktree 分支 ──(并行开发)──┐
 
 **开发与关联**
 
-- 在 `graphics-side-<n>` work tree 分支开发，完成后合并回 `develop`
-- 提交信息写 `fixes #<编号>` 自动关联并关闭 ticket
-- 每个 ticket 在本地 `tickets/<issue编号>-<slug>/` 记录知识沉淀（模板：`../personal/tickets/_template/`）
+1. 在分支名 = ticket 名的 work tree 分支上开发（多分支加 `-[number]` 后缀）
+2. 开发完成后推送分支，开 **PR**（分支 ↔ PR 一对一），PR 合并回 `develop` 后删除分支
+3. 提交信息写 `fixes #<编号>` 自动关联并关闭 ticket（PR 描述同样可写）
+4. 每个 ticket 在本地 `tickets/<issue编号>-<slug>/` 记录知识沉淀（模板：`../personal/tickets/_template/`）
 
 ## 开发
 
