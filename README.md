@@ -55,7 +55,7 @@ side worktree 分支 ──(并行开发)──┐
 | `docs` | 文档 |
 
 - **Milestone** 按月：`2024-08`、`2024-09` …
-- **看板**（GitHub Projects）：Todo → In Progress → Done
+- **看板**（GitHub Projects）：[Graphics-dev-table](https://github.com/users/CoCoCoDeDeDe/projects/3)，列：Todo → In Progress → Done
 
 **开发与关联**
 
